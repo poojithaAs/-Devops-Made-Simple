@@ -1,0 +1,132 @@
+Page Link : https://www.linkedin.com/pulse/ai-systems-do-crash-drift-quietly-while-everything-looks-poojitha-a-s-5ox6c/?trackingId=GYN9ipvCRmqxDmeAcuZ1QA%3D%3D
+
+March 9, 2026
+✍️ Poojitha A S | SRE | AI Observability Series
+
+Most software fails loudly.
+
+Errors spike. Latency explodes. Alerts fire.
+
+You know something is wrong.
+
+AI systems behave differently.
+
+They degrade quietly while dashboards stay green. CPU normal. Latency normal. HTTP 200 across the board.
+
+The system appears healthy.
+
+But the answers are wrong.
+
+And users trust them.
+
+The Scale of the Problem
+
+In 2024 AI hallucinations cost businesses 67.4 billion dollars.
+
+In 2025 95 percent of enterprise AI initiatives never reached production. MIT Media Lab confirmed it.
+
+47 percent of enterprise AI users made at least one major decision based on hallucinated output.
+
+A lawyer filed fabricated case citations. A chatbot response erased 100 billion dollars in shareholder value. A health insurance algorithm denied care at one claim per second with a 90 percent error rate on appeals.
+
+None of these triggered an infrastructure alert.
+
+Why Traditional Monitoring Fails
+
+Most teams monitor AI the same way they monitor traditional software. CPU. Memory. Latency. Error rate.
+
+Those signals work for deterministic systems. Same input. Same output.
+
+AI does not work that way.
+
+Large language models are non deterministic. A model can have 99.9 percent uptime while producing completely wrong outputs.
+
+A system that is up but wrong is worse than a system that is down. When it is down people wait. When it is wrong people trust it.
+
+Five Failure Modes Monitoring Misses
+
+1 Silent Quality Degradation. Model responds fast. Answers are wrong. Dashboards stay green. Users leave.
+
+2 Prompt Drift. Someone edits the system prompt in a database. No deploy. No config change tracked. Behavior changes silently.
+
+3 Stale Embeddings. Embedding pipeline fails. Vector database serves outdated content. Model is not hallucinating. Your data pipeline is.
+
+4 Token Cost Explosions. Agent retries at 2 AM. Each retry includes growing history. Monthly budget gone by sunrise. CPU looks fine. This is a wallet problem.
+
+5 Behavioral Anomalies. The model refuses what it used to answer. Or answers what it used to block. Nothing crashed. Behavior changed.
+
+Article content
+The AI Golden Signals
+
+Infrastructure has four golden signals. AI needs its own.
+
+1 Response Quality. Is the answer correct? Not fast. Not available. Correct.
+
+2 Token Cost. Track by model, application, environment. This is your AI electricity bill.
+
+3 Drift. Data drift. Model drift. Embedding drift. Small daily changes until quality collapses.
+
+4 Retrieval Relevance. Did retrieved documents actually help? Ten irrelevant results is worse than zero.
+
+5 Guardrail Health. How often do guardrails fire? Sudden spikes mean misuse, attacks, or misconfiguration.
+
+Article content
+Anomaly Detection: The Missing Layer
+
+Traditional anomaly detection watches for spikes. CPU above 90 percent. Disk at 95.
+
+AI anomaly detection watches for changes in meaning.
+
+Good platforms build baselines for response quality, token patterns, and semantic output. When something deviates, they correlate signals across layers.
+
+The Tools That Matter
+
+Enterprise: Dynatrace, Datadog, New Relic. Best if you already run them.
+
+AI Native: Arize Phoenix, LangWatch, Braintrust. Built specifically for AI.
+
+Open Standard: OpenTelemetry. Instrument once. Send anywhere. No vendor lock in.
+
+The AI Quality Budget
+
+SRE teams use error budgets. AI teams need quality budgets.
+
+Target 95 percent accuracy. Allow 5 percent failure. That is your experimentation budget.
+
+Week 1 → New prompt. Quality 96 percent. Budget healthy.
+
+Week 2 → Model update. Quality 93 percent. Budget dropping.
+
+Week 3 → Rollback. Quality 95 percent. Stabilized.
+
+Week 4 → Pipeline fails. Quality 88 percent. Budget gone.
+
+Result: Feature freeze. Team focuses on data pipeline health.
+
+Where To Start This Week
+
+Day 1. Add OpenTelemetry traces to every LLM call and retrieval step.
+
+Day 2. Run automated quality evaluation on a sample of production responses.
+
+Day 3. Build a token usage dashboard. Alert on any 3x spike.
+
+Day 4. Check embedding and vector database freshness.
+
+Day 5. Baseline quality, cost, guardrails, and retrieval relevance.
+
+These become your AI golden signals.
+
+Start there.
+
+You cannot eliminate AI hallucinations.
+
+But you can detect them in minutes instead of days.
+
+Traditional observability tells you the system is running.
+
+AI observability tells you the system is correct.
+
+
+
+#AIObservability  #AnomalyDetection  #SRE  #LLMOps
